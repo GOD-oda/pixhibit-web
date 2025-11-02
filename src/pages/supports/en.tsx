@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx'
 import { Layout } from '../layouts'
 
-export const En: FC = () => {
+export const En: FC<{contactEmail: string}> = ({contactEmail}) => {
   return (
     <Layout lang="en">
       <div style={{ fontFamily: 'sans-serif', margin: '2em', lineHeight: 1.6 }}>
@@ -11,7 +11,7 @@ export const En: FC = () => {
           <h2>Contact Us</h2>
           <p>If you have any issues or questions, please contact us via the links below:</p>
           <ul>
-            <li><a href="mailto:support@example.com">Contact via email</a></li>
+            <li><a href={`mailto:${contactEmail}`}>Contact via email</a></li>
           </ul>
         </section>
 

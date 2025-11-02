@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx'
 import { Layout } from '../layouts'
 
-export const Ja: FC = () => {
+export const Ja: FC<{contactEmail: string}> = ({contactEmail}) => {
   return (
     <Layout lang="ja">
       <div style={{ fontFamily: 'sans-serif', margin: '2em', lineHeight: 1.6 }}>
@@ -11,7 +11,7 @@ export const Ja: FC = () => {
           <h2>お問い合わせ</h2>
           <p>問題や質問がある場合は、以下のリンクからお問い合わせください：</p>
           <ul>
-            <li><a href="mailto:support@example.com">メールで問い合わせ</a></li>
+            <li><a href={`mailto:${contactEmail}`}>メールで問い合わせ</a></li>
           </ul>
         </section>
 

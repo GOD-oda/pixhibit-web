@@ -1,14 +1,20 @@
 import type {FC} from "hono/jsx";
 import {Ja} from "./ja";
 import {En} from "./en";
+import {Bindings} from "../../index";
 
-export const Supports: FC<{lang?: string}> = ({lang}) => {
+type SupportsProps = {
+  env: Bindings,
+  lang?: string | null,
+}
+
+export const Supports: FC<SupportsProps> = ({env, lang}) => {
   switch (lang) {
     case "ja":
-      return <Ja/>;
+      return <Ja contactEmail={env.CONTACT_EMAIL}/>;
     case "en":
-      return <En/>;
+      return <En  contactEmail={env.CONTACT_EMAIL}/>;
     default:
-      return <En/>;
+      return <En contactEmail={env.CONTACT_EMAIL}/>;
   }
 }

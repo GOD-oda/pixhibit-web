@@ -1,7 +1,7 @@
 import type { FC } from 'hono/jsx'
 import { Layout } from '../layouts'
 
-export const Ja: FC = () => {
+export const Ja: FC<{contactEmail: string}> = ({contactEmail}) => {
   return (
     <Layout lang="ja">
       <h1>プライバシーポリシー</h1>
@@ -24,7 +24,7 @@ export const Ja: FC = () => {
 
       <h2>4. お問い合わせ</h2>
       <p>プライバシーに関するお問い合わせは以下までお願いいたします：</p>
-      <p>pixhibit.app@gmail.com</p>
+      <p><a href={`mailto:${contactEmail}`}>{contactEmail}</a></p>
 
       <p>制定日：2025年10月6日</p>
     </Layout>
